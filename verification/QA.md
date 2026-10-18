@@ -30,3 +30,8 @@ Cobertura limitada ao Edge/Chromium disponível neste computador; Safari e Firef
 
 Sete testes completos aprovados (19,6 s). Incluída revelação suave das seções institucionais e das fotos de produto ao rolar. Ficha com entrada vertical de cima para baixo, inclusive conteúdo com pequeno intervalo entre foto e texto. Teste específico confirma direção dos quadros-chave, revelação e desligamento com movimento reduzido. Build de produção aprovado.
 Publicação autorizada pelo autor no GitHub Pages. Pasta docs gerada por npm run pages:build. Verificação pública registrada em DEPLOY.md após a conclusão.
+
+
+## Download em pasta para VS Code
+
+Sete testes aprovados (29,8 s) após a alteração do ZIP. Validada uma única pasta superior com o nome do site, arquivo abrir-no-vscode.code-workspace apontando para a própria pasta e abertura real do index.html extraído dentro dela em contexto offline. Fontes, imagens e navegação mantidas. Build para GitHub Pages aprovado.

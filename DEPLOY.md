@@ -10,3 +10,8 @@
 - Evidências: verification/live-result.json, live-desktop.png e live-mobile.png.
 
 A publicação não acrescenta vendas, pagamentos ou pedidos. Esses recursos não fazem parte desta versão.
+
+
+## Atualização do formato do download
+
+O ZIP agora inclui uma pasta superior com o nome do site. Todos os recursos e o arquivo abrir-no-vscode.code-workspace ficam dentro dela. Extraia e abra essa pasta no VS Code, ou abra o arquivo de workspace. O download contém um arquivo adicional de workspace em relação à verificação inicial acima. As duas suítes, com sete testes cada, foram executadas novamente e aprovadas, incluindo extração da nova pasta e visualização offline.

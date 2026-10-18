@@ -59,3 +59,8 @@ Código MIT. Créditos dos recursos em [verification/ASSETS.md](verification/ASS
 - Repositório: https://github.com/fwestarb/marca-studio
 
 Para atualizar a publicação: execute `npm ci`, `npm test` e `npm run pages:build`. O último comando gera `dist/` e atualiza somente a pasta `docs/` deste projeto. Revise, faça commit e envie a branch `main`. GitHub Pages usa `main /docs`. Não edite os arquivos compilados manualmente; altere `src/` e gere a publicação novamente.
+
+
+## Download organizado para VS Code
+
+O ZIP contém uma única pasta com o nome do site, incluindo HTML, CSS, JavaScript, imagens, fontes e o projeto editável. Extraia o ZIP e use **Arquivo > Abrir Pasta** no VS Code para abrir essa pasta, ou abra `abrir-no-vscode.code-workspace` dentro dela. Para visualizar, abra `index.html` no navegador. O catálogo do Marca Studio fica em `produtos.html`. Para publicar, envie o conteúdo da pasta interna.
