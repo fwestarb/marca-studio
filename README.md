@@ -38,7 +38,7 @@ Os testes usam Microsoft Edge no Windows. Ajuste `playwright.config.js` para out
 
 ## Publicar depois da revisão
 
-O editor pode ser publicado em hospedagem estática usando `dist/` após `npm run build`. O site criado pelo editor é outro artefato: publique todo o conteúdo do ZIP, sem remover as pastas de recursos. O projeto está preparado localmente; o deploy conjunto com Folio Studio será uma etapa posterior.
+O editor pode ser publicado em hospedagem estática usando `dist/` após `npm run build`. O site criado pelo editor é outro artefato: publique todo o conteúdo do ZIP, sem remover as pastas de recursos. O editor é distribuído pelo GitHub Pages; a exportação em ZIP continua independente da hospedagem do editor.
 
 ## English
 
@@ -51,3 +51,11 @@ All sample branding is fictional. The workshop image is AI generated; product il
 ## Licença e créditos
 
 Código MIT. Créditos dos recursos em [verification/ASSETS.md](verification/ASSETS.md). Licença do fflate em `FFLATE-LICENSE.txt`; fontes em `public/fonts/*/OFL.txt`.
+
+
+## GitHub Pages
+
+- Editor: https://fwestarb.github.io/marca-studio/
+- Repositório: https://github.com/fwestarb/marca-studio
+
+Para atualizar a publicação: execute `npm ci`, `npm test` e `npm run pages:build`. O último comando gera `dist/` e atualiza somente a pasta `docs/` deste projeto. Revise, faça commit e envie a branch `main`. GitHub Pages usa `main /docs`. Não edite os arquivos compilados manualmente; altere `src/` e gere a publicação novamente.

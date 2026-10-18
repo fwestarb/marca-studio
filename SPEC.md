@@ -119,3 +119,8 @@ Empresa + catálogo no mesmo editor, até 12 produtos, três fotos por item, pre
 Movimento implementado em CSS/JavaScript: textos ligados à rolagem, recorte progressivo das fotos institucionais, parallax limitado a 16 px, divisor que se revela, troca de fotos no hover e trilho horizontal. Respeita movimento reduzido. Não foi necessário incluir GSAP, OGL, Embla ou um shader WebGL. Não há vídeo, editor de proporções ou intensidade contínua nesta versão; a fotografia principal tem recorte em arco, e os movimentos podem ser ativados ou desativados.
 
 Marca fictícia Casa Amora, foto de ateliê gerada por IA e ilustrações de cerâmica próprias. Fontes locais com OFL. Documentação em português e resumo em inglês no README. Sem deploy; prévia local de produção disponível para revisão.
+
+
+## Autorização de publicação e animações finais
+
+O autor autorizou publicar Folio Studio e Marca Studio após testes, em 17/10/2026. Incluídas revelações das seções da empresa e das fotos do catálogo ao rolar, e ficha de produto que entra de cima para baixo com conteúdo em sequência. Respeita movimento reduzido e a configuração de movimentos do editor. Catálogo continua sem checkout ou pagamentos.

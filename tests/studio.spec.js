@@ -64,3 +64,10 @@ test('celular, menu e restauração por teclado',async({page})=>{
  await page.getByRole('button',{name:'Editar',exact:true}).click();await page.getByRole('button',{name:'Baixar',exact:true}).click();await page.getByRole('button',{name:'Recomeçar com o modelo'}).click();await expect(page.getByRole('dialog',{name:'Recomeçar?'})).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog',{name:'Recomeçar?'})).toHaveCount(0);await page.screenshot({path:'verification/editor-mobile.png'});
 });
 test('normalização dos limites e precisão monetária',()=>{expect(priceCents('89,90')).toBe(8990);expect(priceCents('1.000,00')).toBe(null);expect(priceCents('-1')).toBe(null);expect(safeUrl('javascript:alert(1)')).toBe('');expect(()=>normalize({...defaults,heroImage:'data:image/svg+xml;base64,AAAA'})).toThrow();expect(()=>normalize({...defaults,products:Array(13).fill(defaults.products[0])})).toThrow();});
+test('rolagem revela empresa e produtos; ficha entra de cima para baixo',async({page})=>{
+ await ready(page);const f=frame(page);const section=f.locator('.values article').first();await expect(section).toHaveClass(/scroll-waiting/);await section.scrollIntoViewIfNeeded();await expect(section).toHaveClass(/scroll-visible/);
+ await page.locator('.page-picker').getByRole('button',{name:'Produtos',exact:true}).click();const photo=f.locator('.product-picture').first();await photo.scrollIntoViewIfNeeded();await expect(photo).toHaveClass(/scroll-visible/);
+ await f.getByRole('button',{name:'Ver detalhes de Copo Aurora'}).click();const dialog=f.locator('dialog[open]');await expect(dialog).toHaveCSS('animation-name','product-enter');
+ const start=await dialog.evaluate(e=>{const a=e.getAnimations().find(a=>a.animationName==='product-enter');return a?.effect.getKeyframes()[0].transform;});expect(start).toBe('translateY(-28px)');
+ await page.keyboard.press('Escape');await page.emulateMedia({reducedMotion:'reduce'});await f.getByRole('button',{name:'Ver detalhes de Copo Aurora'}).click();await expect(f.locator('dialog[open]')).toHaveCSS('animation-name','none');
+});

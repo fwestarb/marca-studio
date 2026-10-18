@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "test": "playwright test"
+    "test": "playwright test",
+    "pages:build": "vite build && node scripts/prepare-pages.mjs"
   },
   "dependencies": {
     "fflate": "0.8.3",

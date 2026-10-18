@@ -24,3 +24,9 @@ Revisão visual separada em Edge: editor desktop, empresa desktop/celular, catá
 `npm run build` concluído. `npm audit --omit=dev`: zero vulnerabilidades reportadas. fflate atualizado de 0.8.2 para 0.8.3 durante a implementação.
 
 Cobertura limitada ao Edge/Chromium disponível neste computador; Safari e Firefox não foram executados. Não houve teste de serviço comercial externo nem publicação no GitHub. O editor permanece local.
+
+
+## Verificação para publicação — 17/10/2026
+
+Sete testes completos aprovados (19,6 s). Incluída revelação suave das seções institucionais e das fotos de produto ao rolar. Ficha com entrada vertical de cima para baixo, inclusive conteúdo com pequeno intervalo entre foto e texto. Teste específico confirma direção dos quadros-chave, revelação e desligamento com movimento reduzido. Build de produção aprovado.
+Publicação autorizada pelo autor no GitHub Pages. Pasta docs gerada por npm run pages:build. Verificação pública registrada em DEPLOY.md após a conclusão.

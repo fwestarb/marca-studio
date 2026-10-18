@@ -1,6 +1,17 @@
 (()=>{
  const config=window.MARCA||{},root=document.documentElement,preference=matchMedia('(prefers-reduced-motion:reduce)');let pending=false;
+ root.dataset.motion=config.motion?'on':'off';
  const revealed=[...document.querySelectorAll('[data-reveal]')];
+ const scrollItems=[...document.querySelectorAll('.story-copy,.values article,.gallery-pictures .media,.team article,.faq,.contact,.product-picture')];
+ let revealObserver;
+ function revealSetup(){
+  revealObserver?.disconnect();
+  scrollItems.forEach(el=>el.classList.remove('scroll-waiting','scroll-visible'));
+  if(!config.motion||preference.matches||!('IntersectionObserver' in window))return;
+  revealObserver=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('scroll-visible');revealObserver.unobserve(entry.target);}}, {threshold:.08});
+  scrollItems.forEach((el,i)=>{el.style.setProperty('--reveal-delay',`${(i%3)*45}ms`);el.classList.add('scroll-waiting');revealObserver.observe(el);});
+ }
+ revealSetup();preference.addEventListener('change',revealSetup);
  function update(){pending=false;const motion=config.motion&&!preference.matches;for(const el of revealed){const top=el.getBoundingClientRect().top,p=motion?Math.max(0,Math.min(1,(innerHeight*.95-top)/(innerHeight*.5))):1;el.style.setProperty('--p',p);el.querySelectorAll('.word>span').forEach((w,i,all)=>{const progress=Math.max(0,Math.min(1,p*1.4-(i/Math.max(1,all.length))*.4));w.style.transform=`translateY(${(1-progress)*104}%)`;});}
   document.querySelectorAll('[data-photo-reveal]').forEach(el=>{const p=motion?Math.max(0,Math.min(1,(innerHeight-el.getBoundingClientRect().top)/(innerHeight*.6))):1;el.style.clipPath=`inset(${(1-p)*12}% ${(1-p)*5}% 0 round var(--radius))`;});const portrait=document.querySelector('.hero-portrait');if(portrait&&config.effect&&motion)portrait.style.transform=`translateY(${Math.max(-16,Math.min(16,scrollY*.035))}px)`;
   if(config.preview)parent.postMessage({type:'marca-position',page:config.page,y:scrollY},'*');
